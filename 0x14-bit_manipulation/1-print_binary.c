@@ -9,6 +9,7 @@ void print_binary(unsigned long int n)
 {
 	/* Bit manipulation loop */
 	unsigned long int mask = 1UL << ((sizeof(unsigned long int) * 8) - 1);
+
 	while (mask > 0)
 	{
 		/* Use bitwise AND to get the value of the current bit */
@@ -22,5 +23,6 @@ void print_binary(unsigned long int n)
 
 		/* Shift the mask one bit to the right */
 		mask = mask >> 1;
+
 	}
 }

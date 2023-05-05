@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -14,9 +15,9 @@ void print_binary(unsigned long int n)
 	while (mask > 0)
 	{
 		if (n & mask)
-			_putchar('1');
+			putchar('1');
 		else
-			_putchar('0');
+			putchar('0');
 
 		mask >>= 1;
 	}

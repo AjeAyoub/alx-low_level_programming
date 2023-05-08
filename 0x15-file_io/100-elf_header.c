@@ -45,7 +45,6 @@ void check_elf(unsigned char *e_ident)
  * print_magic - Prints the magic numbers of an ELF header.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
  *
- *
  * Description: Magic numbers are separated by spaces.
  */
 void print_magic(unsigned char *e_ident)
@@ -92,6 +91,7 @@ void print_class(unsigned char *e_ident)
 /**
  * print_data - Prints the data of an ELF header.
  * @e_ident: A pointer to an array containing the ELF class.
+ *
  */
 void print_data(unsigned char *e_ident)
 {
@@ -191,7 +191,6 @@ void print_abi(unsigned char *e_ident)
 /**
  * print_type - Prints the type of an ELF header.
  * @e_type: The ELF type.
- *
  * @e_ident: A pointer to an array containing the ELF class.
  */
 void print_type(unsigned int e_type, unsigned char *e_ident)
@@ -269,7 +268,6 @@ void close_elf(int elf)
  * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
- *
  *
  * Description: If the file is not an ELF File or
  * the function fails - exit code 98.

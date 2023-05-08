@@ -177,7 +177,6 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- *
  * print_abi - Prints the ABI version of an ELF header.
  * @e_ident: A pointer to an array containing the ELF ABI version.
  */
@@ -248,7 +247,6 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
  *
- *
  * Description: If the file cannot be closed - exit code 98.
  */
 void close_elf(int elf)
@@ -266,7 +264,6 @@ void close_elf(int elf)
  * ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- *
  *
  * Return: 0 on success.
  *

@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 		}
 
 		r = read(from, buff, 1024);
-		t = open(argvv[2], O_WRONLY | O_APPEND);
+		t = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 

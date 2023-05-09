@@ -5,10 +5,11 @@
 char *create_buffer(char *file);
 void close_file(int fdd);
 
+
 /**
-* create_buffer - Allocates 1024 bytes for a buffer.
-* @file: A pointer to the file buffer is storing chars for.
-* Return: A pointer to the newly-allocated buffer.
+*create_buffer - Allocates 1024 bytes of memory for a buffer.
+*@file: The name of the file for which the buffer is storing characters.
+*Return: A pointer to the newly-allocated buffer.
 */
 char *create_buffer(char *file)
 {
@@ -29,15 +30,15 @@ char *create_buffer(char *file)
 /**
 *close_file - Closes a file descriptor.
 *@fdd: The file descriptor to be closed.
-*This function closes the file descriptor specified by @fdd.
+*Return: 0 on success, -1 on failure.
 */
 void close_file(int fdd)
 {
-	int cc;
+	int c;
 
-	cc = close(fdd);
+	c = close(fdd);
 
-	if (cc == -1)
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fdd %d\n", fdd);
 		exit(100);
@@ -45,19 +46,18 @@ void close_file(int fdd)
 }
 
 /**
-*main - Copies the contents of one file to another file.
+*main - Copies the contents of a file to another file.
 *@argc: The number of arguments supplied to the program.
 *@argv: An array of pointers to the arguments.
-*Return: 0 on success, or a non-zero exit code on failure.
-*Description: If the
-*argument count is incorrect (i.e., not 3) - exit code 97.
+*Return: 0 on success.
+*Description: If the argument count is incorrect - exit code 97.
 *If file_from does not exist or cannot be read - exit code 98.
 *If file_to cannot be created or written to - exit code 99.
-*If an error occurs while closing a file - exit code 100.
+*If file_to or file_from cannot be closed - exit code 100.
 */
 int main(int argc, char *argv[])
 {
-	int from, t, r, wr;
+	int frm, t, r, wr;
 	char *buff;
 
 	if (argc != 3)
@@ -67,12 +67,12 @@ int main(int argc, char *argv[])
 	}
 
 	buff = create_buffer(argv[2]);
-	from = open(argv[1], O_RDONLY);
-	r = read(from, buff, 1024);
+	frm = open(argv[1], O_RDONLY);
+	r = read(frm, buff, 1024);
 	t = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || r == -1)
+		if (frm == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -89,13 +89,13 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		r = read(from, buff, 1024);
+		r = read(frm, buff, 1024);
 		t = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
 	free(buff);
-	close_file(from);
+	close_file(frm);
 	close_file(t);
 
 	return (0);

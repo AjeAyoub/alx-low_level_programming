@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char *create_buffer(char *file);
-void close_file(int fd);
+void close_file(int fdd);
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
@@ -32,7 +32,7 @@ char *create_buffer(char *file)
 *@fdd: The file descriptor to be closed.
 *This function closes the file descriptor specified by @fdd.
 */
-void close_file(int fd)
+void close_file(int fdd)
 {
 	int cc;
 
@@ -50,7 +50,8 @@ void close_file(int fd)
 *@argc: The number of arguments supplied to the program.
 *@argv: An array of pointers to the arguments.
 *Return: 0 on success, or a non-zero exit code on failure.
-*Description: If the argument count is incorrect (i.e., not 3) - exit code 97.
+*Description: If the
+*argument count is incorrect (i.e., not 3) - exit code 97.
 *If file_from does not exist or cannot be read - exit code 98.
 *If file_to cannot be created or written to - exit code 99.
 *If an error occurs while closing a file - exit code 100.

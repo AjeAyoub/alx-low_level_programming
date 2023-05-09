@@ -7,9 +7,9 @@ void close_file(int fdd);
 
 
 /**
-*create_buffer - Allocates 1024 bytes of memory for a buffer.
-*@file: The name of the file for which the buffer is storing characters.
-*Return: A pointer to the newly-allocated buffer.
+*create_buffer - Allocates 1024 bytes of memory for a buff.
+*@file: The name of the file for which the buff is storing characters.
+*Return: A pointer to the newly-allocated buff.
 */
 char *create_buffer(char *file)
 {

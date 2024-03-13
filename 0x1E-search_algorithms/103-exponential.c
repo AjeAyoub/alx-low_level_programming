@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * print_array - prints the array of ints, separated with commas
+ * print_array - prints array of ints, separated with commas
  *
  * @array: a pointer to the array to print
  * @first: the first index to print

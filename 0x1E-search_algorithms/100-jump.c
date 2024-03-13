@@ -4,7 +4,7 @@
  * jump_search - searches for a value in an array of integers
  * @array: a pointer to the first element of array to search in
  * @size: the number of elements in array
- * @value: the value to search for
+ * @value:  value to search for
  *
  * Return: the index where value is located or -1 on failure or not found
  */
